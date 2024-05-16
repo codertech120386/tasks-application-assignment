@@ -69,7 +69,7 @@ export const Login = () => {
               size='md'
             />
 
-            <Button value='Login' disabled={isLoading} size='100%' />
+            <Button value='LOGIN' disabled={isLoading} size='100%' />
 
             <Text className={classes.backToLoginText}>
               Go back to{' '}

@@ -32,3 +32,7 @@
     - user can also edit or delete his tasks
     - If there are more than 10 tasks then they will be shown in a paginated manner.
     - Finally logout and once logged out user cannot visit this page till he logs in again
+
+### Assumptions
+
+- I am fetching all tasks by default

@@ -15,7 +15,8 @@ def create_task(task, creator_id, session):
              "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR})
 
     try:
-        task = create_task_in_db(title=task.title, description=task.description, creator_id=creator_id, session=session)
+        task = create_task_in_db(title=task.title, task_status=task.status, description=task.description,
+                                 creator_id=creator_id, session=session)
         return generic_response({"data": task, "status_code": status.HTTP_201_CREATED})
     except Exception as e:
         print(e)

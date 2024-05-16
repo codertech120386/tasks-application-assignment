@@ -9,13 +9,13 @@ from .models import Task
 date_format = "%Y-%m-%d"
 
 
-def create_task_in_db(title, description, creator_id, session):
+def create_task_in_db(title, task_status, description, creator_id, session):
     try:
         task = Task(
             title=title,
             description=description,
             creator_id=creator_id,
-            status='To Do'
+            status=task_status
         )
 
         session.add(task)

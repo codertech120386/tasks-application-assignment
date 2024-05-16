@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Box } from '@mantine/core';
-import { IconCaretUp, IconCaretDown } from '@tabler/icons-react';
+import { IconCaretUpFilled, IconCaretDownFilled } from '@tabler/icons-react';
 
 type TaskTableColumnSortProps = {
   columnHeader: string;
@@ -21,12 +21,12 @@ export const ColumnSorter = ({
     <Flex align={'center'}>
       {columnHeader}
       <Box ml='sm'>
-        <IconCaretUp
+        <IconCaretUpFilled
           color='white'
           size={24}
           onClick={() => sortTaskBy(columnName, 'asc')}
         />
-        <IconCaretDown
+        <IconCaretDownFilled
           color='white'
           size={24}
           onClick={() => sortTaskBy(columnName, 'desc')}

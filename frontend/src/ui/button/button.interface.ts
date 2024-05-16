@@ -11,6 +11,7 @@ export interface ButtonProps {
     borderRadius?: string;
     padding?: string;
     marginRight?: string;
+    marginBottom?: string;
     fontSize?: string;
     background?: string;
     border?: string;

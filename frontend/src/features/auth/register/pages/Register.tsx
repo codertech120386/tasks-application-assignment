@@ -99,7 +99,7 @@ export const Register = () => {
               size='md'
             />
 
-            <Button value='Create Account' disabled={isLoading} size='100%' />
+            <Button value='REGISTER' disabled={isLoading} size='100%' />
 
             <Text className={classes.backToLoginText}>
               Go back to{' '}

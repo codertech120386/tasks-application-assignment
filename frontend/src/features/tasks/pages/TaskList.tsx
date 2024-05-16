@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { Group, rem, Pagination, Flex } from '@mantine/core';
+import { Group, rem, Pagination, Flex, Text } from '@mantine/core';
 import { modals } from '@mantine/modals';
 
 import { TaskTableColumnSorter, Task } from '../components';
@@ -16,6 +16,14 @@ import { removeItemFromLocalStorage } from '../../../utils/components';
 export const TaskList = () => {
   const [status, setStatus] = useState('All');
   const { allTasksDetails } = useAppSelector((state) => state.getAllTasks);
+  const { userInformation: loginUserInformation } = useAppSelector(
+    (state) => state.login
+  );
+  const { userInformation: registerUserInformation } = useAppSelector(
+    (state) => state.register
+  );
+  const userInformation = loginUserInformation || registerUserInformation;
+  const name = userInformation.name;
   const { tasks, totalPages, activePage } = allTasksDetails;
 
   const dispatch = useAppDispatch();
@@ -73,16 +81,23 @@ export const TaskList = () => {
   return (
     <div className='relative overflow-x-auto'>
       <Flex justify={'end'} mt={-30}>
+        <Text size={rem(36)} mr={rem(300)} mt={20}>
+          Welcome {name}
+        </Text>
         <Button
-          value='Logout'
+          value='LOGOUT'
           size='10%'
           onClick={logoutUser}
-          style={{ backgroundColor: '#fcc419', color: '#000' }}
+          style={{
+            backgroundColor: '#fcc419',
+            color: '#000',
+            marginBottom: rem(40),
+          }}
         />
       </Flex>
-      <Group position='right' spacing={275} mt={50}>
+      <Group position='right' spacing={275} mt={-20}>
         <Button
-          value='Create a Task'
+          value='CREATE A TASK'
           size='20%'
           onClick={showCreateNewTaskModal}
         />
@@ -132,8 +147,8 @@ export const TaskList = () => {
                 sortTaskByColumnAndDirection={sortTaskBy}
               />
             </th>
-            <th>EDIT</th>
-            <th>DELETE</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
